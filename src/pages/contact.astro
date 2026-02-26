@@ -1,0 +1,57 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Container from '@/components/ui/Container.astro';
+import ContactForm from '@/components/ContactForm.astro';
+---
+
+<PageLayout
+  title="Contact"
+  description="Get in touch with ClarioIQ. Questions about lead generation, cold email strategy, or the Signal Stack framework."
+>
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <h1 class="text-4xl md:text-5xl font-bold text-dark mb-6">
+        Get in Touch
+      </h1>
+      <p class="text-xl text-gray-600 mb-12">
+        Questions about lead generation, cold email, or the Signal Stack framework? Send a message.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Form -->
+        <div>
+          <ContactForm />
+        </div>
+
+        <!-- Info -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="font-bold text-dark mb-2">Email</h3>
+            <a
+              href="mailto:hello@clarioiq.co"
+              class="text-accent hover:text-accent-dark"
+            >
+              hello@clarioiq.co
+            </a>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-dark mb-2">Response Time</h3>
+            <p class="text-gray-600">
+              Typically within 24-48 hours.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-dark mb-2">What to Include</h3>
+            <ul class="text-gray-600 space-y-2">
+              <li>Your current lead generation setup</li>
+              <li>What's not working</li>
+              <li>What outcome you're looking for</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

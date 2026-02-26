@@ -1,0 +1,241 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Container from '@/components/ui/Container.astro';
+import Button from '@/components/ui/Button.astro';
+import FAQ from '@/components/seo/FAQ.astro';
+import SchemaOrg from '@/components/seo/SchemaOrg.astro';
+
+const faqs = [
+  {
+    question: "What is Signal-Led GTM?",
+    answer: "Signal-Led GTM is a methodology that targets prospects based on verifiable events (signals) that indicate buying intent, such as hiring patterns, funding announcements, or technology migrations. Instead of sending volume-based outreach to static lists, you target the right people at the right time."
+  },
+  {
+    question: "What is The Signal Stack?",
+    answer: "The Signal Stack is a 3-stage framework for building signal-led outbound infrastructure: Infrastructure (technical foundation), Authority (proof assets), and Activation (precision campaigns). Each stage must be completed before moving to the next."
+  },
+  {
+    question: "How is this different from traditional cold email?",
+    answer: "Traditional cold email relies on volume—sending thousands of generic emails hoping for a few replies. Signal-Led GTM flips this: you send fewer, highly targeted emails to prospects showing active buying signals, achieving 18% response rates versus 3.4% for volume-based outreach."
+  },
+  {
+    question: "What tools do I need for Signal-Led GTM?",
+    answer: "A typical Signal Stack includes: Apollo (signal source), Clay (data enrichment), Make.com (routing automation), and Smartlead (email delivery). The exact stack depends on your use case and budget."
+  },
+];
+---
+
+<PageLayout
+  title="The Signal Stack Framework"
+  description="A 3-stage framework for building Signal-Led GTM infrastructure. Learn the methodology behind precision outbound that achieves 18% response rates."
+>
+  <SchemaOrg type="faq" data={{ faqs }} />
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24 bg-dark text-white">
+    <Container size="narrow">
+      <span class="text-accent font-semibold text-sm uppercase tracking-widest">
+        The Framework
+      </span>
+      <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+        The Signal Stack
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        A 3-stage methodology for building Signal-Led GTM infrastructure. Stop chasing volume. Start targeting signal.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Core Principle -->
+  <section class="py-16 md:py-24 border-b border-gray-200">
+    <Container size="narrow">
+      <h2 class="text-2xl font-bold text-dark mb-6">The Core Principle</h2>
+
+      <div class="bg-gray-100 p-8 rounded-lg mb-8">
+        <p class="text-2xl font-bold text-dark text-center">
+          "Volume is Noise. Precision is Signal."
+        </p>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-gray-600">
+        <p>
+          Traditional outbound treats email as a numbers game: send 1,000 emails, get 3 replies. This model is broken.
+        </p>
+        <p>
+          Signal-Led GTM inverts the equation. Instead of asking "how many emails can we send?" we ask "which prospects have a bleeding neck problem right now?"
+        </p>
+        <p>
+          A bleeding neck problem is a verified event that indicates immediate pain: a new VP Sales hire who needs pipeline, a funding round that demands growth, a tech migration that requires implementation support.
+        </p>
+        <p>
+          87 precision emails to the right prospects at the right time will outperform 1,000 generic emails. Every time.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Stage 1: Infrastructure -->
+  <section class="py-16 md:py-24 border-b border-gray-200">
+    <Container size="narrow">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-5xl font-bold text-gray-200">01</span>
+        <h2 class="text-2xl font-bold text-dark">Infrastructure</h2>
+      </div>
+
+      <p class="text-gray-600 text-lg mb-8">
+        Build the technical foundation. Nothing moves until the foundation is sound.
+      </p>
+
+      <div class="space-y-6">
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Deliverability Setup</h3>
+          <p class="text-gray-600 text-sm">
+            Domain configuration, DNS records, email warmup, sender reputation. Your emails must reach the inbox before anything else matters.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Signal Monitoring</h3>
+          <p class="text-gray-600 text-sm">
+            Configure triggers for buying signals: hiring events, funding rounds, job changes, tech migrations. Apollo saved searches, LinkedIn alerts, news monitoring.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Data Enrichment</h3>
+          <p class="text-gray-600 text-sm">
+            Enrich raw signals with context: company data, contact details, recent activity. Clay tables, waterfall enrichment, verification.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Routing Automation</h3>
+          <p class="text-gray-600 text-sm">
+            Connect signal sources to sending infrastructure. Make.com scenarios, webhook triggers, data transformation.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Stage 2: Authority -->
+  <section class="py-16 md:py-24 border-b border-gray-200">
+    <Container size="narrow">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-5xl font-bold text-gray-200">02</span>
+        <h2 class="text-2xl font-bold text-dark">Authority</h2>
+      </div>
+
+      <p class="text-gray-600 text-lg mb-8">
+        Create the assets that prove competence before the conversation starts. The prospect should know you're the architect before they reply.
+      </p>
+
+      <div class="space-y-6">
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Case Studies</h3>
+          <p class="text-gray-600 text-sm">
+            Document real results. Specific metrics, named challenges, clear outcomes. Not testimonials—evidence.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Positioning Content</h3>
+          <p class="text-gray-600 text-sm">
+            Blog posts, frameworks, guides that establish methodology. Not thought leadership fluff—diagnostic content that names real problems.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Build Logs</h3>
+          <p class="text-gray-600 text-sm">
+            Show your work. Document implementations, share configurations, reveal the machine. Transparency builds trust.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Stage 3: Activation -->
+  <section class="py-16 md:py-24 border-b border-gray-200">
+    <Container size="narrow">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-5xl font-bold text-gray-200">03</span>
+        <h2 class="text-2xl font-bold text-dark">Activation</h2>
+      </div>
+
+      <p class="text-gray-600 text-lg mb-8">
+        Deploy precision outbound campaigns. Signal-triggered sequences only. No volume. No spray.
+      </p>
+
+      <div class="space-y-6">
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Signal-Triggered Sequences</h3>
+          <p class="text-gray-600 text-sm">
+            Email sequences that fire when specific signals occur. Hiring signal → hiring-focused sequence. Funding signal → growth-focused sequence.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Precision Targeting</h3>
+          <p class="text-gray-600 text-sm">
+            Each campaign targets a specific signal, specific ICP, specific pain point. 87 emails, not 1,000.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">AEO Knowledge Base</h3>
+          <p class="text-gray-600 text-sm">
+            Content optimized for AI citation. When prospects ask AI about their problem, your methodology appears in the answer.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Results -->
+  <section class="py-16 md:py-24 bg-gray-100">
+    <Container size="narrow">
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">The Numbers</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div>
+          <p class="text-4xl font-bold text-accent">18%</p>
+          <p class="text-gray-600 text-sm mt-2">Response rate with Signal-Led GTM</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-gray-400">3.4%</p>
+          <p class="text-gray-600 text-sm mt-2">Response rate with traditional outbound</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-accent">5x</p>
+          <p class="text-gray-600 text-sm mt-2">Improvement in meeting rate</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <FAQ faqs={faqs} title="Framework FAQ" />
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 bg-dark text-white">
+    <Container size="narrow" class="text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Build Your Signal Stack?</h2>
+      <p class="text-gray-300 mb-8">
+        Start with the blog. Learn the methodology. Then implement.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <Button href="/blog" size="lg">
+          Read the Blog
+        </Button>
+        <Button href="/contact" variant="ghost" size="lg">
+          Get in Touch
+        </Button>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

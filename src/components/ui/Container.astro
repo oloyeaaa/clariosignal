@@ -1,0 +1,24 @@
+---
+interface Props {
+  size?: 'default' | 'narrow' | 'wide';
+  class?: string;
+}
+
+const { size = 'default', class: className } = Astro.props;
+
+const sizes: Record<string, string> = {
+  default: "max-w-7xl",
+  narrow: "max-w-3xl",
+  wide: "max-w-[1400px]",
+};
+
+const classes = [
+  "mx-auto px-6",
+  sizes[size],
+  className,
+].filter(Boolean).join(' ');
+---
+
+<div class={classes}>
+  <slot />
+</div>

@@ -1,0 +1,30 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Container from '@/components/ui/Container.astro';
+---
+
+<section class="bg-dark text-white py-20 md:py-32 relative overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-90 to-dark-70 opacity-50"></div>
+
+  <Container class="relative z-10">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Here's Exactly How We're Building Cold Email Systems That Book Meetings
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+        And how you can apply the same framework today.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <Button href="/framework" size="lg">
+          See the Framework
+        </Button>
+        <Button href="/blog" variant="ghost" size="lg">
+          Read the Blog
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

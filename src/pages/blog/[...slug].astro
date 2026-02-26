@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import PostHeader from '@/components/blog/PostHeader.astro';
+import AuthorBox from '@/components/blog/AuthorBox.astro';
+import TableOfContents from '@/components/blog/TableOfContents.astro';
+import FAQ from '@/components/seo/FAQ.astro';
+import SchemaOrg from '@/components/seo/SchemaOrg.astro';
+import Container from '@/components/ui/Container.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const { title, description, publishDate, updatedDate, category, author, image, imageAlt, faqs } = post.data;
+---
+
+<BlogLayout
+  title={title}
+  description={description}
+  image={image}
+  publishDate={publishDate}
+>
+  <!-- Schema markup -->
+  <SchemaOrg
+    type="article"
+    data={{
+      title,
+      description,
+      publishDate,
+      updatedDate,
+      author,
+      image,
+      slug: post.slug
+    }}
+  />
+  {faqs && <SchemaOrg type="faq" data={{ faqs }} />}
+
+  <article>
+    <Container size="narrow">
+      <!-- Header -->
+      <PostHeader
+        title={title}
+        description={description}
+        publishDate={publishDate}
+        updatedDate={updatedDate}
+        category={category}
+        author={author}
+        image={image}
+        imageAlt={imageAlt}
+      />
+
+      <!-- Table of Contents -->
+      <TableOfContents headings={headings} />
+
+      <!-- Content -->
+      <div class="prose-custom">
+        <Content />
+      </div>
+
+      <!-- FAQ Section -->
+      {faqs && faqs.length > 0 && (
+        <FAQ faqs={faqs} />
+      )}
+
+      <!-- Author Box -->
+      <AuthorBox />
+    </Container>
+  </article>
+</BlogLayout>

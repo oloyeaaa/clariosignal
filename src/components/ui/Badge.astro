@@ -1,0 +1,23 @@
+---
+interface Props {
+  variant?: 'default' | 'accent';
+  class?: string;
+}
+
+const { variant = 'default', class: className } = Astro.props;
+
+const variants: Record<string, string> = {
+  default: "bg-gray-100 text-gray-600",
+  accent: "bg-accent/10 text-accent",
+};
+
+const classes = [
+  "inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full",
+  variants[variant],
+  className,
+].filter(Boolean).join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>

@@ -1,0 +1,52 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'link';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
+
+const variants: Record<string, string> = {
+  primary: "bg-accent hover:bg-accent-dark text-white focus:ring-accent",
+  secondary: "bg-transparent border border-dark hover:border-accent text-dark hover:text-accent focus:ring-dark",
+  ghost: "bg-transparent border border-white/50 hover:border-white text-white focus:ring-white",
+  link: "text-accent hover:text-accent-dark underline-offset-4 hover:underline",
+};
+
+const sizes: Record<string, string> = {
+  sm: "text-xs px-3 py-2 rounded",
+  md: "text-sm px-6 py-3 rounded-md uppercase tracking-wide",
+  lg: "text-base px-8 py-4 rounded-md uppercase tracking-wide",
+};
+
+const classes = [
+  baseStyles,
+  variants[variant],
+  variant !== 'link' && sizes[size],
+  variant !== 'link' && "hover:-translate-y-0.5",
+  className,
+].filter(Boolean).join(' ');
+
+const Tag = href ? 'a' : 'button';
+---
+
+{href ? (
+  <a href={href} class={classes} {...rest}>
+    <slot />
+  </a>
+) : (
+  <button class={classes} {...rest}>
+    <slot />
+  </button>
+)}

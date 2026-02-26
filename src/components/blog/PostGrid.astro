@@ -1,0 +1,21 @@
+---
+import PostCard from './PostCard.astro';
+
+interface Props {
+  posts: any[];
+  columns?: 2 | 3;
+}
+
+const { posts, columns = 3 } = Astro.props;
+
+const gridCols: Record<number, string> = {
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-2 lg:grid-cols-3",
+};
+---
+
+<div class:list={["grid gap-8", gridCols[columns]]}>
+  {posts.map((post) => (
+    <PostCard post={post} />
+  ))}
+</div>

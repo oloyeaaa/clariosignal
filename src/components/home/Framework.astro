@@ -1,0 +1,57 @@
+---
+import Container from '@/components/ui/Container.astro';
+import Button from '@/components/ui/Button.astro';
+
+const stages = [
+  {
+    number: "01",
+    title: "Infrastructure",
+    description: "Build the technical foundation. Deliverability, signal monitoring, data enrichment, routing automation.",
+    color: "border-gray-400",
+  },
+  {
+    number: "02",
+    title: "Authority",
+    description: "Create assets that prove competence before the conversation starts. Case studies, positioning content, build logs.",
+    color: "border-accent/50",
+  },
+  {
+    number: "03",
+    title: "Activation",
+    description: "Deploy precision outbound campaigns. Signal-triggered sequences only. No volume. No spray.",
+    color: "border-accent",
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-gray-100">
+  <Container>
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">
+        The Signal Stack
+      </h2>
+      <p class="text-gray-600 text-lg">
+        A 3-stage framework for building Signal-Led GTM infrastructure.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      {stages.map((stage) => (
+        <div class:list={[
+          "bg-white p-8 rounded-lg border-t-4",
+          stage.color
+        ]}>
+          <span class="text-4xl font-bold text-gray-200">{stage.number}</span>
+          <h3 class="text-xl font-bold text-dark mt-4 mb-3">{stage.title}</h3>
+          <p class="text-gray-600">{stage.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <Button href="/framework" size="lg">
+        Explore the Full Framework
+      </Button>
+    </div>
+  </Container>
+</section>

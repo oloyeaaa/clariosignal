@@ -1,0 +1,93 @@
+---
+interface Props {
+  type: 'organization' | 'article' | 'faq' | 'breadcrumb';
+  data?: any;
+}
+
+const { type, data } = Astro.props;
+const siteUrl = 'https://clarioiq.co';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ClarioIQ",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/logo.svg`,
+  "description": "Clarity-first B2B lead generation systems and cold email frameworks.",
+  "founder": {
+    "@type": "Person",
+    "name": "Oloye Adeosun"
+  },
+  "sameAs": [
+    "https://twitter.com/clarioiq",
+    "https://linkedin.com/company/clarioiq"
+  ]
+};
+
+const articleSchema = data ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": data.title,
+  "description": data.description,
+  "image": data.image ? `${siteUrl}${data.image}` : `${siteUrl}/og-image.png`,
+  "datePublished": data.publishDate?.toISOString(),
+  "dateModified": data.updatedDate?.toISOString() || data.publishDate?.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": data.author || "Oloye Adeosun",
+    "url": `${siteUrl}/about`
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ClarioIQ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/images/logo.svg`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${siteUrl}/blog/${data.slug}`
+  }
+} : null;
+
+const faqSchema = data?.faqs ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": data.faqs.map((faq: any) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
+
+const breadcrumbSchema = data?.breadcrumbs ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": data.breadcrumbs.map((item: any, index: number) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `${siteUrl}${item.path}`
+  }))
+} : null;
+---
+
+{type === 'organization' && (
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+)}
+
+{type === 'article' && articleSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+)}
+
+{type === 'faq' && faqSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
+
+{type === 'breadcrumb' && breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}

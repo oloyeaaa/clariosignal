@@ -1,0 +1,31 @@
+---
+interface Props {
+  name?: string;
+  bio?: string;
+  image?: string;
+}
+
+const {
+  name = "Oloye Adeosun",
+  bio = "Founder of ClarioIQ. Building clarity-first lead generation systems from the ground up. Sharing what works (and what doesn't) in outbound.",
+  image = "/images/oloye.jpg"
+} = Astro.props;
+---
+
+<div class="flex items-start gap-4 p-6 bg-gray-100 rounded-lg mt-12">
+  <img
+    src={image}
+    alt={name}
+    class="w-16 h-16 rounded-full object-cover flex-shrink-0"
+  />
+  <div>
+    <h4 class="font-bold text-dark">{name}</h4>
+    <p class="text-gray-600 text-sm mt-1">{bio}</p>
+    <a
+      href="/about"
+      class="text-accent hover:text-accent-dark text-sm font-medium mt-2 inline-block"
+    >
+      Learn more &rarr;
+    </a>
+  </div>
+</div>

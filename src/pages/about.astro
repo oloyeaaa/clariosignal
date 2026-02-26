@@ -1,0 +1,116 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Container from '@/components/ui/Container.astro';
+import Button from '@/components/ui/Button.astro';
+---
+
+<PageLayout
+  title="About ClarioIQ"
+  description="Learn about ClarioIQ and the mission to bring clarity to B2B lead generation through signal-led outreach systems."
+>
+  <!-- Hero -->
+  <section class="py-16 md:py-24 border-b border-gray-200">
+    <Container size="narrow">
+      <h1 class="text-4xl md:text-5xl font-bold text-dark mb-6">
+        About ClarioIQ
+      </h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        ClarioIQ exists to bring clarity to B2B lead generation. We document the process of building signal-led outreach systems from scratch—so other founders don't have to guess.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <h2 class="text-2xl font-bold text-dark mb-6">The Mission</h2>
+
+      <div class="prose prose-lg max-w-none text-gray-600 space-y-6">
+        <p>
+          Most B2B founders struggle with pipeline. They rely on referrals. They try outbound agencies. They burn through tools without results.
+        </p>
+        <p>
+          The problem isn't effort. It's clarity.
+        </p>
+        <p>
+          They don't have a clear ICP. They don't have infrastructure. They don't have a system that runs without them.
+        </p>
+        <p>
+          ClarioIQ is a documentation project. We're building lead generation systems in public—sharing frameworks, mistakes, and results—so founders can learn from real implementation, not theory.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- The Founder -->
+  <section class="py-16 md:py-24 bg-gray-100">
+    <Container size="narrow">
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <img
+          src="/images/oloye.jpg"
+          alt="Oloye Adeosun"
+          class="w-32 h-32 rounded-full object-cover flex-shrink-0"
+        />
+        <div>
+          <h2 class="text-2xl font-bold text-dark mb-4">Oloye Adeosun</h2>
+          <p class="text-gray-600 mb-4">
+            I'm Oloye, founder of ClarioIQ. I started this project after watching too many founders burn time and money on outbound that doesn't work.
+          </p>
+          <p class="text-gray-600 mb-4">
+            The playbooks out there are either too vague (theory without implementation) or too expensive (agencies that charge £5k/month for generic lists).
+          </p>
+          <p class="text-gray-600">
+            So I'm building the system myself—and documenting every step. The frameworks. The tools. The mistakes. All of it.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- What We Cover -->
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <h2 class="text-2xl font-bold text-dark mb-8">What We Cover</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Lead Generation Systems</h3>
+          <p class="text-gray-600 text-sm">
+            Infrastructure, automation, and workflows for predictable pipeline.
+          </p>
+        </div>
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Cold Email Strategy</h3>
+          <p class="text-gray-600 text-sm">
+            Sequences, offers, and copy that gets replies.
+          </p>
+        </div>
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Ideal Customer Profile</h3>
+          <p class="text-gray-600 text-sm">
+            How to define, validate, and target your best buyers.
+          </p>
+        </div>
+        <div class="p-6 bg-white border border-gray-200 rounded-lg">
+          <h3 class="font-bold text-dark mb-2">Outreach Tools</h3>
+          <p class="text-gray-600 text-sm">
+            Reviews, workflows, and configurations that work.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 bg-dark text-white">
+    <Container size="narrow" class="text-center">
+      <h2 class="text-3xl font-bold mb-6">Follow the Build</h2>
+      <p class="text-gray-300 mb-8">
+        Get weekly insights on building B2B lead generation systems that work.
+      </p>
+      <Button href="/blog" size="lg">
+        Read the Blog
+      </Button>
+    </Container>
+  </section>
+</PageLayout>

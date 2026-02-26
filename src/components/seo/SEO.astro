@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishDate?: Date;
+  updatedDate?: Date;
+  author?: string;
+  noIndex?: boolean;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/og-image.png',
+  type = 'website',
+  publishDate,
+  updatedDate,
+  author = 'Oloye Adeosun',
+  noIndex = false,
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = 'https://clarioiq.co';
+const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const imageUrl = new URL(image, siteUrl).href;
+const fullTitle = `${title} — ClarioIQ`;
+---
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="ClarioIQ" />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:creator" content="@clarioiq" />
+
+<!-- Article specific -->
+{type === 'article' && publishDate && (
+  <>
+    <meta property="article:published_time" content={publishDate.toISOString()} />
+    <meta property="article:author" content={author} />
+    {updatedDate && (
+      <meta property="article:modified_time" content={updatedDate.toISOString()} />
+    )}
+  </>
+)}
+
+<!-- Additional SEO -->
+<meta name="author" content={author} />
+<meta name="generator" content={Astro.generator} />

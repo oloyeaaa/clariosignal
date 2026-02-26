@@ -1,0 +1,30 @@
+---
+interface Props {
+  variant?: 'default' | 'dark' | 'feature';
+  hover?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  hover = true,
+  class: className
+} = Astro.props;
+
+const variants: Record<string, string> = {
+  default: "bg-white border border-gray-200",
+  dark: "bg-dark border border-dark-70 text-white",
+  feature: "bg-gray-100 border-l-4 border-accent",
+};
+
+const classes = [
+  "rounded-lg p-6 transition-all duration-200",
+  variants[variant],
+  hover && variant === 'default' && "hover:border-accent hover:shadow-lg hover:shadow-dark/5",
+  className,
+].filter(Boolean).join(' ');
+---
+
+<article class={classes}>
+  <slot />
+</article>

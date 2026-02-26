@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import Container from '@/components/ui/Container.astro';
+import PostCard from '@/components/blog/PostCard.astro';
+import { CATEGORIES } from '@/lib/constants';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) =>
+  b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const featuredPost = posts.find(p => p.data.featured) || posts[0];
+const remainingPosts = posts.filter(p => p.slug !== featuredPost?.slug);
+---
+
+<PageLayout
+  title="Blog"
+  description="Insights on B2B lead generation, cold email strategy, ICP definition, and outreach automation. Learn to build systems that book meetings."
+>
+  <!-- Header -->
+  <section class="py-12 border-b border-gray-200">
+    <Container>
+      <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">
+        Blog
+      </h1>
+      <p class="text-xl text-gray-600">
+        Frameworks, guides, and build logs for B2B lead generation.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-6 border-b border-gray-200 sticky top-16 bg-white z-40">
+    <Container>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="/blog"
+          class="text-sm font-medium text-accent"
+        >
+          All Posts
+        </a>
+        {CATEGORIES.map((cat) => (
+          <a
+            href={`/blog/category/${cat.slug}`}
+            class="text-sm font-medium text-gray-600 hover:text-accent transition-colors"
+          >
+            {cat.label}
+          </a>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Featured Post -->
+  {featuredPost && (
+    <section class="py-12 border-b border-gray-200">
+      <Container>
+        <PostCard post={featuredPost} featured />
+      </Container>
+    </section>
+  )}
+
+  <!-- Post Grid -->
+  <section class="py-12">
+    <Container>
+      {remainingPosts.length > 0 ? (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {remainingPosts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p class="text-gray-600 text-center py-12">
+          More posts coming soon.
+        </p>
+      )}
+    </Container>
+  </section>
+</PageLayout>

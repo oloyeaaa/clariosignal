@@ -1,0 +1,71 @@
+---
+import { formatDate, getCategoryLabel } from '@/lib/utils';
+import Badge from '@/components/ui/Badge.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  updatedDate?: Date;
+  category: string;
+  author: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  description,
+  publishDate,
+  updatedDate,
+  category,
+  author,
+  image,
+  imageAlt
+} = Astro.props;
+---
+
+<header class="mb-12">
+  <!-- Category -->
+  <a href={`/blog/category/${category}`}>
+    <Badge variant="accent">
+      {getCategoryLabel(category)}
+    </Badge>
+  </a>
+
+  <!-- Title -->
+  <h1 class="text-3xl md:text-5xl font-bold text-dark mt-4 mb-6 leading-tight">
+    {title}
+  </h1>
+
+  <!-- Description -->
+  <p class="text-xl text-gray-600 leading-relaxed mb-6">
+    {description}
+  </p>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-8 border-b border-gray-200">
+    <span class="font-medium text-dark">{author}</span>
+    <span>&middot;</span>
+    <time datetime={publishDate.toISOString()}>
+      {formatDate(publishDate)}
+    </time>
+    {updatedDate && (
+      <>
+        <span>&middot;</span>
+        <span>Updated {formatDate(updatedDate)}</span>
+      </>
+    )}
+  </div>
+
+  <!-- Featured Image -->
+  {image && (
+    <div class="mt-8 aspect-[2/1] overflow-hidden rounded-lg">
+      <img
+        src={image}
+        alt={imageAlt || title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+  )}
+</header>

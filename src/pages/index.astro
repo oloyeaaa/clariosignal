@@ -1,0 +1,45 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Hero from '@/components/home/Hero.astro';
+import Framework from '@/components/home/Framework.astro';
+import LatestPosts from '@/components/home/LatestPosts.astro';
+import CTA from '@/components/home/CTA.astro';
+import Container from '@/components/ui/Container.astro';
+---
+
+<PageLayout
+  title="B2B Lead Generation Systems & Cold Email Frameworks"
+  description="Build cold email systems that book meetings. Clarity-first B2B lead generation frameworks, ICP guides, and outreach strategies."
+>
+  <Hero />
+
+  <!-- Problem Section -->
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark mb-8 text-center">
+        Why Most Cold Email Fails
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-gray-600">
+        <p>
+          The old model is broken. 1,000 emails per day. Generic lists. Spray and pray.
+        </p>
+        <p>
+          This approach burns domains, destroys reputation, and positions you as a petitioner begging for attention.
+        </p>
+        <p>
+          The problem isn't your copy. It's not your subject lines. It's not your sending tool.
+        </p>
+        <p class="text-dark font-semibold">
+          The problem is volume. And volume is noise.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <Framework />
+
+  <LatestPosts />
+
+  <CTA />
+</PageLayout>

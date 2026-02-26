@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-gray-600;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-dark;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-6;
+  }
+
+  .prose-custom {
+    @apply prose prose-lg max-w-none;
+    @apply prose-headings:font-bold prose-headings:text-dark;
+    @apply prose-a:text-accent prose-a:no-underline hover:prose-a:underline;
+    @apply prose-img:rounded-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
