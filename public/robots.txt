@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clarioiq.co/sitemap-index.xml
+Sitemap: https://clariosignal.com/sitemap-index.xml
 
 # Block admin paths (if any)
 Disallow: /admin/

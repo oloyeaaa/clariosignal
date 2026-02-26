@@ -20,9 +20,15 @@ const blogCollection = defineCollection({
     noIndex: z.boolean().default(false),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
+    contentType: z.enum(['pillar', 'cluster']).default('cluster'),
+    pillarSlug: z.string().optional(),
     faqs: z.array(z.object({
       question: z.string(),
       answer: z.string(),
+    })).optional(),
+    sources: z.array(z.object({
+      title: z.string(),
+      url: z.string().url(),
     })).optional(),
     relatedPosts: z.array(z.string()).max(3).optional(),
   }),

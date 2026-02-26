@@ -1,0 +1,32 @@
+---
+interface Props {
+  articles: {
+    slug: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+const { articles } = Astro.props;
+---
+
+{articles.length > 0 && (
+  <div class="mt-12 pt-8 border-t border-gray-200">
+    <h2 class="text-2xl font-bold text-dark mb-6">Dive Deeper</h2>
+    <div class="space-y-4">
+      {articles.map((article) => (
+        <a
+          href={`/blog/${article.slug}`}
+          class="block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors group"
+        >
+          <h3 class="font-semibold text-dark group-hover:text-accent transition-colors">
+            {article.title}
+          </h3>
+          <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+            {article.description}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+)}

@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://clarioiq.co',
+  site: 'https://clariosignal.com',
   integrations: [
     tailwind(),
     sitemap({
@@ -11,7 +11,7 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       serialize: (item) => {
-        if (item.url === 'https://clarioiq.co/') {
+        if (item.url === 'https://clariosignal.com/') {
           item.priority = 1.0;
         }
         if (item.url.includes('/framework')) {

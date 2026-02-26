@@ -3,6 +3,15 @@ title: "How to Build a B2B Lead List Without Expensive Tools"
 description: "Build targeted B2B lead lists using free and low-cost tools. A practical guide to list building for founders on a budget."
 publishDate: 2026-02-01
 category: "lead-generation-systems"
+contentType: "cluster"
+pillarSlug: "defining-your-icp"
+sources:
+  - title: "Apollo.io: Free B2B Data & Lead Intelligence"
+    url: "https://www.apollo.io/product/data"
+  - title: "Hunter.io: Email Verification Best Practices"
+    url: "https://hunter.io/blog/email-verification-best-practices"
+  - title: "LinkedIn Sales Navigator: Advanced Search Filters"
+    url: "https://business.linkedin.com/sales-solutions/sales-navigator"
 faqs:
   - question: "How do I build a B2B lead list for free?"
     answer: "Use Apollo's free tier (10,000 credits/year), LinkedIn search, and Google advanced operators. Focus on signal-based targeting to keep lists small and highly relevant rather than building massive generic lists."

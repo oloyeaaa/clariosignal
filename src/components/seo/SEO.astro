@@ -23,10 +23,10 @@ const {
   canonicalUrl,
 } = Astro.props;
 
-const siteUrl = 'https://clarioiq.co';
+const siteUrl = 'https://clariosignal.com';
 const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
 const imageUrl = new URL(image, siteUrl).href;
-const fullTitle = `${title} — ClarioIQ`;
+const fullTitle = `${title} — ClarioSignal`;
 ---
 
 <!-- Primary Meta Tags -->
@@ -45,7 +45,7 @@ const fullTitle = `${title} — ClarioIQ`;
 <meta property="og:image" content={imageUrl} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:site_name" content="ClarioIQ" />
+<meta property="og:site_name" content="ClarioSignal" />
 <meta property="og:locale" content="en_GB" />
 
 <!-- Twitter -->
@@ -54,7 +54,7 @@ const fullTitle = `${title} — ClarioIQ`;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
-<meta name="twitter:creator" content="@clarioiq" />
+<meta name="twitter:creator" content="@clariosignal" />
 
 <!-- Article specific -->
 {type === 'article' && publishDate && (

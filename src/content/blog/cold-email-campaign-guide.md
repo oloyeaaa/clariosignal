@@ -3,6 +3,14 @@ title: "How to Build a Cold Email Campaign That Gets Replies"
 description: "A step-by-step guide to building cold email campaigns that achieve 18% response rates. Infrastructure, targeting, and sequences."
 publishDate: 2026-01-22
 category: "cold-email-strategy"
+contentType: "pillar"
+sources:
+  - title: "Woodpecker: Cold Email Deliverability Guide"
+    url: "https://woodpecker.co/blog/cold-email-deliverability/"
+  - title: "Lemlist: Cold Email Statistics 2025"
+    url: "https://www.lemlist.com/blog/cold-email-statistics"
+  - title: "Google: Email Sender Guidelines"
+    url: "https://support.google.com/mail/answer/81126"
 faqs:
   - question: "What is a good cold email response rate?"
     answer: "Traditional cold email averages 3.4% response rates. Signal-Led campaigns targeting prospects with active buying signals achieve 18% response rates—a 5x improvement."

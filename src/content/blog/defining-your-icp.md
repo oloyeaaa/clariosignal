@@ -4,6 +4,14 @@ description: "Learn the exact steps to define your ideal customer profile. Witho
 publishDate: 2026-01-15
 category: "ideal-customer-profile"
 featured: true
+contentType: "pillar"
+sources:
+  - title: "HubSpot: How to Create an Ideal Customer Profile"
+    url: "https://blog.hubspot.com/sales/ideal-customer-profile"
+  - title: "Gartner: The B2B Buying Journey"
+    url: "https://www.gartner.com/en/sales/insights/b2b-buying-journey"
+  - title: "Lincoln Murphy: Ideal Customer Profile Framework"
+    url: "https://sixteenventures.com/ideal-customer-profile"
 faqs:
   - question: "What is an Ideal Customer Profile (ICP)?"
     answer: "An ICP is a data-backed description of the companies and decision-makers most likely to benefit from your offer, based on firmographics, buyer roles, and buying signals."

@@ -1,10 +1,10 @@
 export const SITE = {
-  name: 'ClarioIQ',
-  title: 'ClarioIQ | B2B Lead Generation Systems',
+  name: 'ClarioSignal',
+  title: 'ClarioSignal | B2B Lead Generation Systems',
   description: 'Build cold email systems that book meetings. Clarity-first B2B lead generation.',
-  url: 'https://clarioiq.co',
+  url: 'https://clariosignal.com',
   author: 'Oloye Adeosun',
-  email: 'hello@clarioiq.co',
+  email: 'hello@clariosignal.com',
 };
 
 export const CATEGORIES = [
@@ -21,6 +21,6 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com/clarioiq',
-  linkedin: 'https://linkedin.com/company/clarioiq',
+  twitter: 'https://twitter.com/clariosignal',
+  linkedin: 'https://linkedin.com/company/clariosignal',
 };

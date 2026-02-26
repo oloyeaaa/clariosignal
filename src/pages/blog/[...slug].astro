@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import BlogLayout from '@/layouts/BlogLayout.astro';
 import PostHeader from '@/components/blog/PostHeader.astro';
 import AuthorBox from '@/components/blog/AuthorBox.astro';
@@ -7,6 +7,9 @@ import TableOfContents from '@/components/blog/TableOfContents.astro';
 import FAQ from '@/components/seo/FAQ.astro';
 import SchemaOrg from '@/components/seo/SchemaOrg.astro';
 import Container from '@/components/ui/Container.astro';
+import PillarBanner from '@/components/blog/PillarBanner.astro';
+import ClusterArticles from '@/components/blog/ClusterArticles.astro';
+import Sources from '@/components/blog/Sources.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -18,7 +21,27 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
-const { title, description, publishDate, updatedDate, category, author, image, imageAlt, faqs } = post.data;
+const { title, description, publishDate, updatedDate, category, author, image, imageAlt, faqs, contentType, pillarSlug, sources } = post.data;
+
+// Pillar/cluster linking
+let pillarPost = null;
+let clusterArticles: { slug: string; title: string; description: string }[] = [];
+
+if (contentType === 'cluster' && pillarSlug) {
+  const entry = await getEntry('blog', pillarSlug);
+  if (entry) {
+    pillarPost = { title: entry.data.title, slug: entry.slug };
+  }
+}
+
+if (contentType === 'pillar') {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft && data.pillarSlug === post.slug);
+  clusterArticles = allPosts.map(p => ({
+    slug: p.slug,
+    title: p.data.title,
+    description: p.data.description,
+  }));
+}
 ---
 
 <BlogLayout
@@ -44,6 +67,11 @@ const { title, description, publishDate, updatedDate, category, author, image, i
 
   <article>
     <Container size="narrow">
+      <!-- Pillar Banner (cluster posts only) -->
+      {pillarPost && (
+        <PillarBanner pillarTitle={pillarPost.title} pillarSlug={pillarPost.slug} />
+      )}
+
       <!-- Header -->
       <PostHeader
         title={title}
@@ -67,6 +95,16 @@ const { title, description, publishDate, updatedDate, category, author, image, i
       <!-- FAQ Section -->
       {faqs && faqs.length > 0 && (
         <FAQ faqs={faqs} />
+      )}
+
+      <!-- Sources -->
+      {sources && sources.length > 0 && (
+        <Sources sources={sources} />
+      )}
+
+      <!-- Cluster Articles (pillar posts only) -->
+      {clusterArticles.length > 0 && (
+        <ClusterArticles articles={clusterArticles} />
       )}
 
       <!-- Author Box -->

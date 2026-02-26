@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: oloyeaaa/clarioiq
+  repo: oloyeaaa/clariosignal
   branch: main
 
 media_folder: "public/images/blog"
@@ -91,6 +91,23 @@ collections:
         default: false
         hint: "Featured post appears prominently on the blog page."
 
+      - label: "Content Type"
+        name: "contentType"
+        widget: "select"
+        default: "cluster"
+        options:
+          - label: "Pillar (comprehensive guide)"
+            value: "pillar"
+          - label: "Cluster (focused article)"
+            value: "cluster"
+        hint: "Pillar posts are main guides. Cluster posts link back to a pillar."
+
+      - label: "Pillar Post Slug"
+        name: "pillarSlug"
+        widget: "string"
+        required: false
+        hint: "For cluster posts only. Enter the slug of the parent pillar post (e.g. defining-your-icp)."
+
       - label: "FAQs (for SEO/GEO)"
         name: "faqs"
         widget: "list"
@@ -103,6 +120,19 @@ collections:
           - label: "Answer"
             name: "answer"
             widget: "text"
+
+      - label: "Sources & Further Reading"
+        name: "sources"
+        widget: "list"
+        required: false
+        hint: "Add 2-4 external links to authoritative sources. Builds SEO relevance."
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "URL"
+            name: "url"
+            widget: "string"
 
       - label: "Related Posts"
         name: "relatedPosts"

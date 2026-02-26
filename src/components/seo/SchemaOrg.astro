@@ -5,12 +5,12 @@ interface Props {
 }
 
 const { type, data } = Astro.props;
-const siteUrl = 'https://clarioiq.co';
+const siteUrl = 'https://clariosignal.com';
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "ClarioIQ",
+  "name": "ClarioSignal",
   "url": siteUrl,
   "logo": `${siteUrl}/images/logo.svg`,
   "description": "Clarity-first B2B lead generation systems and cold email frameworks.",
@@ -19,8 +19,8 @@ const organizationSchema = {
     "name": "Oloye Adeosun"
   },
   "sameAs": [
-    "https://twitter.com/clarioiq",
-    "https://linkedin.com/company/clarioiq"
+    "https://twitter.com/clariosignal",
+    "https://linkedin.com/company/clariosignal"
   ]
 };
 
@@ -39,7 +39,7 @@ const articleSchema = data ? {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "ClarioIQ",
+    "name": "ClarioSignal",
     "logo": {
       "@type": "ImageObject",
       "url": `${siteUrl}/images/logo.svg`
