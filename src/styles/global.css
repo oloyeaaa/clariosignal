@@ -29,7 +29,20 @@
     @apply prose prose-lg max-w-none;
     @apply prose-headings:font-bold prose-headings:text-dark;
     @apply prose-a:text-accent prose-a:no-underline hover:prose-a:underline;
-    @apply prose-img:rounded-lg;
+    @apply prose-img:rounded-lg prose-img:mx-auto;
+  }
+
+  /* Inline infographics and figures in blog posts */
+  .prose-custom img {
+    @apply w-full h-auto;
+  }
+
+  .prose-custom figure {
+    @apply my-8;
+  }
+
+  .prose-custom figcaption {
+    @apply text-center text-sm text-gray-500 mt-3;
   }
 }
 

@@ -1,0 +1,121 @@
+backend:
+  name: github
+  repo: oloyeaaa/clarioiq
+  branch: main
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    format: "yaml-frontmatter"
+    sortable_fields: ["publishDate", "title"]
+    summary: "{{title}} — {{publishDate}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        pattern: [".{1,100}", "Must be under 100 characters"]
+
+      - label: "Description (SEO)"
+        name: "description"
+        widget: "string"
+        pattern: [".{1,160}", "Must be under 160 characters"]
+        hint: "Appears in search results. Include your primary keyword."
+
+      - label: "Publish Date"
+        name: "publishDate"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD MMM YYYY"
+        time_format: false
+
+      - label: "Updated Date"
+        name: "updatedDate"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD MMM YYYY"
+        time_format: false
+        required: false
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Oloye Adeosun"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - label: "Lead Generation Systems"
+            value: "lead-generation-systems"
+          - label: "Cold Email Strategy"
+            value: "cold-email-strategy"
+          - label: "Ideal Customer Profile"
+            value: "ideal-customer-profile"
+          - label: "Outreach Tools & Workflows"
+            value: "outreach-tools-workflows"
+
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Recommended: 1200x630px. Appears at top of post and in cards."
+        media_library:
+          config:
+            max_file_size: 5000000
+
+      - label: "Image Alt Text"
+        name: "imageAlt"
+        widget: "string"
+        required: false
+        hint: "Describe the image for accessibility and SEO."
+
+      - label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        hint: "Draft posts are hidden from the live site."
+
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Featured post appears prominently on the blog page."
+
+      - label: "FAQs (for SEO/GEO)"
+        name: "faqs"
+        widget: "list"
+        required: false
+        hint: "Add 3-5 FAQs. These generate Schema.org markup for AI citation."
+        fields:
+          - label: "Question"
+            name: "question"
+            widget: "string"
+          - label: "Answer"
+            name: "answer"
+            widget: "text"
+
+      - label: "Related Posts"
+        name: "relatedPosts"
+        widget: "list"
+        required: false
+        max: 3
+        hint: "Enter the slug of related posts (e.g. defining-your-icp)."
+        field:
+          label: "Post Slug"
+          name: "slug"
+          widget: "string"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Use the image button in the toolbar to insert infographics inline."

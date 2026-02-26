@@ -31,6 +31,8 @@ const { title, description, publishDate, category, image, imageAlt } = post.data
         <img
           src={image}
           alt={imageAlt || title}
+          width="800"
+          height="450"
           loading="lazy"
           decoding="async"
           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
