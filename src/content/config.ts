@@ -9,6 +9,14 @@ const blogCollection = defineCollection({
     updatedDate: z.coerce.date().optional(),
     author: z.string().default('Oloye Adeosun'),
     category: z.enum([
+      // New categories
+      'ai-for-trades',
+      'ai-for-hospitality',
+      'ai-for-professional-services',
+      'ai-for-health-beauty',
+      'ai-explained',
+      'local-business-kent',
+      // Legacy categories (existing blog posts)
       'lead-generation-systems',
       'cold-email-strategy',
       'ideal-customer-profile',
